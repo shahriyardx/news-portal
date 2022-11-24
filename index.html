@@ -97,6 +97,34 @@
 
     <main class="p-5 container">
       <div class="p-5 bg-white rounded-lg">4 items found on category Entertainment</div>
+
+      <div class="flex items-center justify-between mt-10">
+        <div class="flex gap-2 items-center">
+          <span>Sort By View: </span>
+          <select name="sort" id="sort" class="px-3 py-2 bg-white rounded-md" onchange="sortPosts(this)">
+            <option value="" selected>Default</option>
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+          </select>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button
+            class="px-3 py-2 border-2 border-indigo-500 bg-indigo-500 rounded-md text-white text-xs"
+          >
+            Todays Pick
+          </button>
+          <button
+            class="px-3 py-2 border-2 border-indigo-500 rounded-md text-xs"
+          >
+            Trending
+          </button>
+        </div>
+      </div>
+
+      <div id="category_posts" class="mt-10 grid grid-cols-1 gap-10">
+        
+      </div>
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" ></script>

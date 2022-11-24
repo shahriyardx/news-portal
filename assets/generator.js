@@ -86,3 +86,47 @@ const getPickTrendingHtml = (post) => {
   </div>
   `
 }
+
+const getPostHtml = (post) => {
+  return `
+    <article class="p-5 sm:p-7 grid grid-cols-5 gap-8 bg-white rounded-lg">
+      <img src="${post.thumbnail_url}" class="h-full aspect-[1.5/2] object-cover rounded-md shadow-lg">
+
+      <div class="col-span-4 flex flex-col">
+        <div>
+          <h1 class="text-3xl font-bold">${post.title}</h1>
+          <p class="mt-3">${post.details.slice(0, 100)}</p>
+        </div>
+
+        <div class="mt-auto flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <img src="${post.author.img}" class="w-12 h-12 rounded-full">
+            
+            <div>
+              <p class="text-lg font-semibold">${post.author.name}</p>
+              <p class="text-zinc-500">${moment(post.author.published_date).format("MMM DD, YYYY")}</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <i class="bx bx-bullseye text-2xl"></i>
+            <p>${post.total_view || 0}</p>
+          </div>
+
+          <div class="flex items-center gap-2 text-zinc-700">
+            <i  class="text-2xl bx bxs-star"></i>
+            <i  class="text-2xl bx bx-star"></i>
+            <i  class="text-2xl bx bx-star"></i>
+            <i  class="text-2xl bx bx-star"></i>
+            <i  class="text-2xl bx bx-star"></i>
+          </div>
+
+          <div>
+            <i class="text-5xl bx bx-right-arrow-alt text-indigo-600 cursor-pointer" ></i>
+          </div>
+        </div>
+      </div>
+
+    </article>
+  `
+}

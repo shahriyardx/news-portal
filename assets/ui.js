@@ -40,6 +40,31 @@ const setCategoryLinks = async () => {
   })
 }
 
+const showCategoryPosts = (category_id, sorting) =>  {
+  if (category_id) {
+    let categoryPOsts = posts.filter(post => post.category_id == category_id)
+
+    const sortByView = (a, b) => {
+      const a_views = a.total_view | 0
+      const b_views = b.total_view | 0
+
+
+      return sorting == "asc" ? a_views - b_views : b_views - a_views
+    }
+
+    if (sorting) {
+      categoryPOsts = categoryPOsts.sort(sortByView)
+    }
+    
+    const container = document.getElementById("category_posts")
+    container.innerHTML = ""
+
+    for (let post of categoryPOsts) {
+      container.innerHTML += getPostHtml(post)
+    }
+  }
+}
+
 const changeActiveLink = (current, category_id) => {
   const currentElement = current.textContent
 
@@ -51,17 +76,17 @@ const changeActiveLink = (current, category_id) => {
     }
   })
 
-  if (category_id) {
-    const categoryPOsts = posts.filter(post => post.category_id == category_id)
-    
-    // TODO: Show posts related to category
-  }
-
+  showCategoryPosts(category_id, document.getElementById("sort") || null )
+  document.getElementById("sort").setAttribute("data-category", category_id)
   toggleSidebar("close")
 }
 
+const sortPosts = (element) => {
+  const category_id = element.dataset.category
+  showCategoryPosts(category_id, element.value)
+}
+
 const showHome = (element) => {
-  
   changeActiveLink(element)
 }
 
