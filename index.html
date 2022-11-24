@@ -12,6 +12,40 @@
     <link rel="stylesheet" href="./assets/css/main.css" />
   </head>
   <body>
+    <header
+      class="container mx-auto border-b-2 border-zinc-200 px-10 py-5 flex items-center justify-between"
+    >
+      <p class="flex items-center gap-2">
+        <span class="p-2 rounded-md bg-indigo-500 text-white">News</span>
+        <span>Portal</span>
+      </p>
+
+      <div class="flex items-center gap-7">
+        <span class="cursor-pointer text-indigo-500 underline font-semibold"
+          >News</span
+        >
+        <span class="cursor-pointer">Blog</span>
+        <img
+          src="./assets/images/profile.jpg"
+          alt="Profile"
+          class="w-8 h-8 rounded-full"
+        />
+      </div>
+    </header>
+
+    <div
+      id="categories"
+      class="container mx-auto px-10 py-5 flex items-center justify-between"
+    >
+      <span
+        class="hover:text-indigo-500 cursor-pointer cat_el_active"
+        onclick="showHome(this)"
+        >Home</span
+      >
+    </div>
+
+    <div class="container mx-auto"></div>
+    <script src="./assets/ui.js"></script>
     <script src="./assets/index.js"></script>
   </body>
 </html>
