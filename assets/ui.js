@@ -21,8 +21,7 @@ const setCategoryLinks = async () => {
   const categories = await getCategories()
 
   categories.forEach((category) => {
-    console.log(categories)
-    container.innerHTML += `<span class="hover:text-indigo-500 cursor-pointer" onclick="showCategory(this)">${category.category_name}<span>`
+    container.innerHTML += `<span class="cat_el" onclick="showCategory(this)">${category.category_name}<span>`
   })
 }
 
@@ -31,11 +30,13 @@ const changeActiveLink = (current) => {
 
   Array.from(current.parentElement.children).forEach((element) => {
     if (element.textContent == currentElement) {
-      element.classList.add("cat_el_active")
+      element.classList.add("active")
     } else {
-      element.classList.remove("cat_el_active")
+      element.classList.remove("active")
     }
   })
+
+  toggleSidebar("close")
 }
 
 const showHome = (element) => {
@@ -46,6 +47,18 @@ const showHome = (element) => {
 const showCategory = (element) => {
   // TODO: show posts of clicked category
   changeActiveLink(element)
+}
+
+const toggleSidebar = (action) => {
+  const sidebar = document.getElementById("categories")
+
+  if (action == "close") {
+    sidebar.classList.add("-right-[100%]")
+    sidebar.classList.remove("right-0") 
+  } else {
+    sidebar.classList.remove("-right-[100%]")
+    sidebar.classList.add("right-0") 
+  }
 }
 
 setCategoryLinks()
