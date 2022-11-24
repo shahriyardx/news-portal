@@ -13,14 +13,14 @@
   </head>
   <body>
     <header
-      class="container mx-auto border-b-2 border-zinc-200 px-10 py-5 flex items-center justify-between"
+      class="container border-b-2 border-zinc-200 p-5 flex items-center justify-between"
     >
       <p class="flex items-center gap-2">
         <span class="p-2 rounded-lg bg-indigo-500 text-white">News</span>
         <span>Portal</span>
       </p>
 
-      <div class="flex items-center gap-7">
+      <div class="flex items-center gap-3 sm:gap-5 md:gap-7">
         <span class="cursor-pointer text-indigo-500 underline font-semibold"
           >News</span
         >
@@ -30,33 +30,78 @@
           alt="Profile"
           class="w-8 h-8 rounded-full"
         />
-        <i class="bx bx-menu text-2xl cursor-pointer lg:hidden" onclick="toggleSidebar()"></i>
+        <i
+          class="bx bx-menu text-2xl cursor-pointer lg:hidden"
+          onclick="toggleSidebar()"
+        ></i>
       </div>
     </header>
 
     <div
       id="categories"
-      class="
-        mx-auto lg:px-10 lg:py-5 bg-white shadow-lg 
-        h-screen lg:h-auto lg:bg-transparent lg:shadow-none
-        flex flex-col lg:flex-row lg:items-center lg:justify-between 
-        fixed lg:static top-0 -right-[100%] transition-[right]
-        w-full max-w-[300px] lg:container z-10
-      "
+      class="lg:px-10 lg:py-5 bg-white shadow-lg h-screen lg:h-auto lg:bg-transparent lg:shadow-none flex flex-col lg:flex-row lg:items-center lg:justify-between fixed lg:static top-0 -right-[100%] transition-[right] w-full max-w-[300px] lg:container z-10"
     >
       <span class="cat_el active" onclick="showHome(this)">Home</span>
-      <div 
-        class="
-          h-12 w-12 bg-red-500 text-white text-xl absolute top-0 -left-12 
-          flex items-center justify-center cursor-pointer
-        "
+      <div
+        class="h-12 w-12 bg-red-500 text-white text-xl absolute top-0 -left-12 flex items-center justify-center cursor-pointer"
         onclick="toggleSidebar('close')"
       >
         <i class="bx bx-x"></i>
       </div>
     </div>
 
-    <div class="container mx-auto"></div>
+    <main class="p-5 mt-10 hidden">
+      <div class="container grid grid-cols-1 md:grid-cols-4 gap-5">
+        <div class="md:col-span-3">
+          <div class="grid grid-cols-1 gap-5">
+            <section>
+              <h1 class="text-3xl md:text-5xl font-bold mb-5">
+                Today's <span class="font-normal">Headlines</span>
+              </h1>
+              <article id="headlines" class="bg-white rounded-lg">
+                <!-- Headline post will render here -->
+              </article>
+            </section>
+            
+            <section>
+              <div class="p-5 sm:p-7 md:p-10 bg-white rounded-md">
+                <h1 class="text-3xl sm:text-4xl font-bold">Latest News</h1>
+                <div id="latest_news" class="grid grid-cols-1 sm:grid-cols-2 gap-10 mt-5">
+                  <!-- Latest posts will render here -->
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex items-center gap-3">
+            <button
+              class="px-3 py-2 border-2 border-indigo-500 bg-indigo-500 rounded-md text-white text-xs"
+            >
+              Todays Pick
+            </button>
+            <button
+              class="px-3 py-2 border-2 border-indigo-500 rounded-md text-xs"
+            >
+              Trending
+            </button>
+          </div>
+
+          <div id="pick_trending" class="grid grid-cols-1 gap-5 mt-5">
+            <!-- todays pick and trending posts will render here -->
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <main class="p-5 container">
+      <div class="p-5 bg-white rounded-lg">4 items found on category Entertainment</div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" ></script>
+    <script src="./assets/generator.js"></script>
+    <script src="./assets/utility.js"></script>
     <script src="./assets/ui.js"></script>
     <script src="./assets/index.js"></script>
   </body>
