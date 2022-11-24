@@ -122,11 +122,32 @@ const getPostHtml = (post) => {
           </div>
 
           <div>
-            <i class="text-5xl bx bx-right-arrow-alt text-indigo-600 cursor-pointer" ></i>
+            <i class="text-5xl bx bx-right-arrow-alt text-indigo-600 cursor-pointer" onclick="showPostDetails('${post._id}')" ></i>
           </div>
         </div>
       </div>
 
     </article>
+  `
+}
+
+const getPOstDetailshtml = (post) => {
+  return `
+    <h1 class="text-4xl font-bold mb-5">${post.title}</h1>
+
+    <img src="${post.image_url}" alt="" class="w-full aspect-video rounded-md mb-10">
+
+    <div>
+      ${post.details}
+    </div>
+
+    <div class="flex items-center gap-2 mt-10">
+      <img src="${post.author.img}" class="w-28 h-28 rounded-full">
+      
+      <div>
+        <p class="text-3xl font-semibold mb-1">${post.author.name}</p>
+        <p class="text-2xl text-zinc-500">${moment(post.author.published_date).format("MMM DD, YYYY")}</p>
+      </div>
+    </div>
   `
 }

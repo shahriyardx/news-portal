@@ -76,7 +76,7 @@ const changeActiveLink = (current, category_id) => {
     }
   })
 
-  showCategoryPosts(category_id, document.getElementById("sort") || null )
+  showCategoryPosts(category_id, document.getElementById("sort").value || null )
   document.getElementById("sort").setAttribute("data-category", category_id)
   toggleSidebar("close")
 }
@@ -87,16 +87,37 @@ const sortPosts = (element) => {
 }
 
 const showHome = (element) => {
+  document.getElementById("home_container").classList.remove("hidden")
+  document.getElementById("category_posts_cntainer").classList.add("hidden")
+  document.getElementById("single_post_cntainer").classList.add("hidden")
+
   changeActiveLink(element)
 }
 
 const showCategory = (element, category_id) => {
-  // TODO: show posts of clicked category
   if (!category_id) {
     return showHome(element)
   }
 
+  document.getElementById("home_container").classList.add("hidden")
+  document.getElementById("single_post_cntainer").classList.add("hidden")
+  document.getElementById("category_posts_cntainer").classList.remove("hidden")
+  
   changeActiveLink(element, category_id)
+}
+
+const showPostDetails = (post_id) => {
+  const post = posts.find(post => post._id === post_id)
+  const container = document.getElementById('single_post_cntainer')
+  container.innerHTML = ""
+
+  if (post) {
+    container.innerHTML = getPOstDetailshtml(post)
+  }
+
+  document.getElementById("single_post_cntainer").classList.remove("hidden")
+  document.getElementById("category_posts_cntainer").classList.add("hidden")
+  document.getElementById("home_container").classList.add("hidden")
 }
 
 const toggleSidebar = (action) => {

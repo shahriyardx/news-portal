@@ -700,6 +700,14 @@ body {
   margin-bottom: 0.5rem;
 }
 
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
 .block {
   display: block;
 }
@@ -781,6 +789,10 @@ body {
   height: 2.5rem;
 }
 
+.h-28 {
+  height: 7rem;
+}
+
 .w-8 {
   width: 2rem;
 }
@@ -811,6 +823,10 @@ body {
 
 .w-9 {
   width: 2.25rem;
+}
+
+.w-28 {
+  width: 7rem;
 }
 
 .max-w-\[300px\] {
