@@ -672,6 +672,10 @@ body {
   margin-top: 2.5rem;
 }
 
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
+
 .mt-5 {
   margin-top: 1.25rem;
 }
@@ -690,10 +694,6 @@ body {
 
 .mb-2 {
   margin-bottom: 0.5rem;
-}
-
-.mb-5 {
-  margin-bottom: 1.25rem;
 }
 
 .block {
