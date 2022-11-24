@@ -89,16 +89,16 @@ const getPickTrendingHtml = (post) => {
 
 const getPostHtml = (post) => {
   return `
-    <article class="p-5 sm:p-7 grid grid-cols-5 gap-8 bg-white rounded-lg">
-      <img src="${post.thumbnail_url}" class="h-full aspect-[1.5/2] object-cover rounded-md shadow-lg">
+    <article class="p-5 sm:p-7 grid grid-cols-1 md:grid-cols-5 gap-8 bg-white rounded-lg">
+      <img src="${post.thumbnail_url}" class="h-full aspect-[3/2] md:aspect-[1.5/2] object-cover rounded-md shadow-lg">
 
-      <div class="col-span-4 flex flex-col">
+      <div class="md:col-span-4 flex flex-col">
         <div>
           <h1 class="text-3xl font-bold">${post.title}</h1>
           <p class="mt-3">${post.details.slice(0, 100)}</p>
         </div>
 
-        <div class="mt-auto flex items-center justify-between">
+        <div class="mt-5 md:mt-auto grid grid-cols-2 gap-3 md:flex items-center justify-between">
           <div class="flex items-center gap-2">
             <img src="${post.author.img}" class="w-12 h-12 rounded-full">
             

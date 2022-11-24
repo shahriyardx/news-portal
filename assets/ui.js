@@ -134,9 +134,10 @@ const toggleSidebar = (action) => {
 
 window.onload = async () => {
   posts = await getAllPosts((posts) => {
-    setHeadlinesPost(posts)
-    setLatestPosts(posts)
-    setPickAndTrendingPosts(posts)
+    // setHeadlinesPost(posts)
+    // setLatestPosts(posts)
+    // setPickAndTrendingPosts(posts)
+    showCategoryPosts("01")
   })
 
   setCategoryLinks()
