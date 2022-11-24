@@ -75,6 +75,10 @@ const changeActiveLink = (current, category_id) => {
       element.classList.remove("active")
     }
   })
+  const categoryPosts = posts.filter(post => post.category_id === category_id)
+
+  document.getElementById("post_count").textContent = categoryPosts.length
+  document.getElementById("post_category").textContent = current.textContent
 
   showCategoryPosts(category_id, document.getElementById("sort").value || null )
   document.getElementById("sort").setAttribute("data-category", category_id)
